@@ -5,7 +5,7 @@ const instance = axios.create({
 });
 
 //Add a response intercreptor
-instance.intercreptors.response.use(
+instance.interceptors.response.use(
   function (response) {
     return response.data;
   },
