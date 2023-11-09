@@ -17,13 +17,9 @@ function TableUsers() {
 
     console.log(">>> check res:", res);
   };
-  console.log(listUsers);
+
   return (
     <>
-      {/* email :"michael.lawson@reqres.in" 
-      first_name : "Michael"
-       id : 7 
-      last_name :"Lawson" */}
       <Table striped bordered hover>
         <thead>
           <tr>
