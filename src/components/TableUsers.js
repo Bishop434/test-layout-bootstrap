@@ -2,18 +2,17 @@ import { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import { fetchAllUser } from "../services/UserService";
 import ReactPaginate from "react-paginate";
-
 function TableUsers() {
   const [listUsers, setListUsers] = useState([]);
   const [totalUsers, setTotalUsers] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   useEffect(() => {
     //call API
-    getUsers();
+    getUsers(1);
   }, []);
 
-  const getUsers = async () => {
-    let res = await fetchAllUser();
+  const getUsers = async (page) => {
+    let res = await fetchAllUser(page);
     if (res && res.data) {
       console.log(res);
       setTotalUsers(res.total);
@@ -21,7 +20,10 @@ function TableUsers() {
       setTotalPages(res.total_pages);
     }
   };
-  const handlePageClick = () => {};
+  const handlePageClick = (event) => {
+    console.log("event check:", event);
+    getUsers(event.selected + 1);
+  };
   return (
     <>
       <Table striped bordered hover>
