@@ -22,7 +22,7 @@ function TableUsers() {
   };
   const handlePageClick = (event) => {
     console.log("event check:", event);
-    getUsers(event.selected + 1);
+    getUsers(+event.selected + 1);
   };
   return (
     <>
